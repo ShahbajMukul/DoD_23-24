@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,17 +10,22 @@ namespace DoD_23_24.Source.Gameplay.ShepardLevel
 {
     public class Ghost : Basic2D
     {
-        private bool isBlinding;
-        private bool isWeakening;
+
         private float moveSpeed;
         public Rectangle ghostBounds;
         private Player targetPlayer;
 
+        private const float BlindnessDistance = 100f;
+        private const float DrunknessDistance = 50f;
+        private TimeSpan blindnessTimer = TimeSpan.Zero;
+        private TimeSpan drunknessTimer = TimeSpan.Zero;
+        private bool isBlindingPlayer = false;
+        private bool isMakingPlayerDizzy = false;
 
         public Ghost(string PATH, Vector2 POS, Vector2 DIMS, bool shouldScale, Player player) : base(PATH, POS, DIMS, shouldScale)
         {
             targetPlayer = player;
-            isBlinding = false;
+            isBlindingPlayer = false;
             moveSpeed = 10.0f;
         }
 
@@ -35,11 +41,11 @@ namespace DoD_23_24.Source.Gameplay.ShepardLevel
         {
             if (Vector2.Distance(pos,targetPlayer.pos) < 50)
             {
-                isBlinding = true;
+                isBlindingPlayer = true;
             }
             else
             {
-                isBlinding = false;
+                isBlindingPlayer = false;
             }
         }
 
