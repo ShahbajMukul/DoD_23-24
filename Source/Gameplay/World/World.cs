@@ -39,6 +39,7 @@ namespace DoD_23_24
         {
             playerInstance.Update(gameTime);
             ghostInstance.Update(gameTime);
+            wolfInstance.Update(gameTime);
         }
 
         public virtual void Draw()
@@ -46,6 +47,7 @@ namespace DoD_23_24
             level.Draw();
             playerInstance.Draw();
             ghostInstance.Draw();
+            wolfInstance.Draw();
         }
 
         public Player GetPlayer()
