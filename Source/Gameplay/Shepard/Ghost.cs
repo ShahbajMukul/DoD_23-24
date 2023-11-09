@@ -20,7 +20,7 @@ namespace DoD_23_24.Source.Gameplay.ShepardLevel
         {
             targetPlayer = player;
             isBlinding = false;
-            moveSpeed = 1.0f;
+            moveSpeed = 10.0f;
         }
 
         public override void Update(GameTime gameTime)

@@ -36,12 +36,14 @@ namespace DoD_23_24
         public virtual void Update(GameTime gameTime)
         {
             playerInstance.Update(gameTime);
+            ghostInstance.Update(gameTime);
         }
 
         public virtual void Draw()
         {
             level.Draw();
             playerInstance.Draw();
+            ghostInstance.Draw();
         }
 
         public Player GetPlayer()
