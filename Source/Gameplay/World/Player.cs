@@ -41,7 +41,7 @@ namespace DoD_23_24
         {
             base.Draw();
         }
-
+        
         public void Movement(GameTime gameTime)
         {
             var kstate = Keyboard.GetState();
@@ -49,6 +49,19 @@ namespace DoD_23_24
             Vector2 initPos = pos;
 
             if (kstate.IsKeyDown(Keys.Left))
+
+            if (kstate.IsKeyDown(Keys.Up))
+            {
+                pos.Y -= speed * zoom * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            
+            if (kstate.IsKeyDown(Keys.Down))
+            {
+                pos.Y += speed * zoom * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            
+            if (kstate.IsKeyDown(Keys.Left) )
+
             {
                 pos.X -= speed * zoom * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }

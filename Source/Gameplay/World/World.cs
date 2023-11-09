@@ -14,6 +14,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 using System.Reflection.Metadata;
+using DoD_23_24.Source.Gameplay.ShepardLevel;
 
 #endregion
 
@@ -24,11 +25,13 @@ namespace DoD_23_24
 
         Level level;
         Player playerInstance;
+        Ghost ghostInstance;
 
         public World()
         {
             level = new Level("Content/map.tmx", "Tiny Adventure Pack\\");
             playerInstance = new Player("2D/Sprites/Item", new Vector2(100, 100), new Vector2(16, 16), true, level);
+            ghostInstance = new Ghost("2D/Sprites/Item", new Vector2(100, 100), new Vector2(16, 16), true, playerInstance);
         }
 
         public virtual void Update(GameTime gameTime)
