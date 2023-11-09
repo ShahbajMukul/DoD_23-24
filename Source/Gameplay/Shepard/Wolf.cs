@@ -27,14 +27,15 @@ namespace DoD_23_24
         float playerYPos;
         float distanceFromPlayer;
 
-        public Wolf(string PATH, Vector2 POS, Vector2 DIMS, bool shouldScale) : base(PATH, POS, DIMS, shouldScale)
+        public Wolf(string PATH, Vector2 POS, Vector2 DIMS, bool shouldScale, Player player) : base(PATH, POS, DIMS, shouldScale)
         {
             wolfBounds = new Rectangle((int)pos.X - (int)(dims.X / 2), (int)pos.Y - (int)(dims.Y / 2), (int)dims.X, (int)dims.Y);
         }
 
         public void getPlayerLocation(Player player)
         {
-
+            playerXPos = player.pos.X;
+            playerYPos = player.pos.Y;
         }
     }
 }
