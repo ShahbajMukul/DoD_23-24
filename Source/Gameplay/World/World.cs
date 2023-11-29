@@ -26,20 +26,22 @@ namespace DoD_23_24
         Level level;
         Player playerInstance;
         Ghost ghostInstance;
-        Wolf wolfInstance;
+        // Wolf wolfInstance;
+        Ram raminstance;
         public World()
         {
             level = new Level("Content/map.tmx", "Tiny Adventure Pack\\");
             playerInstance = new Player("2D/Sprites/Item", new Vector2(100, 100), new Vector2(16, 16), true, level);
             ghostInstance = new Ghost("2D/Sprites/Item", new Vector2(75, 75), new Vector2(16, 16), true, playerInstance);
-            wolfInstance = new Wolf("2D/Sprites/Item", new Vector2(75, 75), new Vector2(16, 16), true, playerInstance);
+            raminstance = new Ram("2D/Sprites/Item", new Vector2(75, 75), new Vector2(16, 16), true, playerInstance);
+            //  wolfInstance = new Wolf("2D/Sprites/Item", new Vector2(75, 75), new Vector2(16, 16), true, playerInstance);
         }
 
         public virtual void Update(GameTime gameTime)
         {
             playerInstance.Update(gameTime);
             ghostInstance.Update(gameTime);
-            wolfInstance.Update(gameTime);
+            //wolfInstance.Update(gameTime);
         }
 
         public virtual void Draw()
@@ -47,7 +49,8 @@ namespace DoD_23_24
             level.Draw();
             playerInstance.Draw();
             ghostInstance.Draw();
-            wolfInstance.Draw();
+            //wolfInstance.Draw();
+            raminstance.Draw();
         }
 
         public Player GetPlayer()
