@@ -22,6 +22,9 @@ namespace DoD_23_24
         float speed = 50f;
         TransformComponent transform;
 
+        public Wolf(string name, Layer layer) : base(name, layer)
+        {
+        }
     };
 
 }
