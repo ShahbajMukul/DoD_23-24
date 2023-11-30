@@ -24,7 +24,6 @@
     <None Remove="Source\Components\" />
     <None Remove="Content\NPCText\TestNPC.txt" />
     <None Remove="Content\bin\DesktopGL\Content\NPCText\" />
-    <None Remove="Content\bin\DesktopGL\Content\NPCText\TestNPC.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />

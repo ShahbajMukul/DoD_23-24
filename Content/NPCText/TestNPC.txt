@@ -1,2 +1,2 @@
-﻿Hello
+Hello
 I am a book
