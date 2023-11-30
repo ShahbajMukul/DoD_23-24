@@ -22,6 +22,10 @@ namespace DoD_23_24
         float speed = 50f;
         TransformComponent transform;
 
+        public Wolf(string name, string PATH, Vector2 POS, float ROT, Vector2 DIMS) : base(name, Layer.NPC)
+        {
+
+        }
     };
 
 }
