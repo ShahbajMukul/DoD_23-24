@@ -21,6 +21,7 @@ namespace DoD_23_24
         TransformComponent transform;
         bool isPressed = false;
         bool isFrozen = false;
+        
 
         public Player(string name, string PATH, Vector2 POS, float ROT, Vector2 DIMS) : base(name, Layer.Player)
 		{
