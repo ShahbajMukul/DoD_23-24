@@ -28,13 +28,9 @@ namespace DoD_23_24
             Globals.collisionSystem = new CollisionSystem();
 
             Entity playerInstance = new Player("Player", "2D/Sprites/Item", new Vector2(100, 100), 0.0f, new Vector2(16, 16));
-            Entity ramInstance = new Rams("Ram", "OIG[1]",new Vector2(110, 100), 0.0f, new Vector2(16, 16));
+            Entity ramInstance = new Rams("Ram", "OIG[1]",new Vector2(110, 100), 0.0f, new Vector2(16, 16),playerInstance);
             //Entity randomThing = new Entity("RandomThing", Layer.NPC);
-            ramInstance.AddComponent(
-                new TransformComponent(ramInstance,
-                    new Vector2(-50, -50), 0.0f, new Vector2(16, 16)));
-            ramInstance.AddComponent(new TransformComponent(ramInstance,
-                new Vector2(-50, -50), 0.0f, new Vector2(16, 16)));
+            
             /*randomThing.AddComponent(new RenderComponent(ramInstance, "2D/Sprites/Item"));
             randomThing.AddComponent(new CollisionComponent(ramInstance, true, true));
             randomThing.AddComponent(new TransformComponent(randomThing,
@@ -63,7 +59,8 @@ namespace DoD_23_24
             {
                 entity.Update(gameTime);
             }
-
+            
+            
             Globals.collisionSystem.Update(gameTime);
         }
 
