@@ -13,12 +13,11 @@ public class Rams : Entity
 
     
 
-    public Rams(string name,string PATH) : base(name, Layer.NPC)
+    public Rams(string name, string PATH, Vector2 POS, float ROT, Vector2 DIMS) : base(name, Layer.NPC)
     {
         transform = (TransformComponent)AddComponent(new TransformComponent(this, POS, ROT, DIMS));
         AddComponent(new RenderComponent(this, PATH));
         AddComponent(new CollisionComponent(this, true, true));
-        
     }
 
     public void Movement(GameTime gameTime)
@@ -31,8 +30,8 @@ public class Rams : Entity
         
         
         base.Update(gameTime);
-        PlayerTransform = GetComponent<TransformComponent>();
-        transform.pos = PlayerTransform.pos + new Vector2(10,10);
+       // PlayerTransform = GetComponent<TransformComponent>();
+        //transform.pos = PlayerTransform.pos + new Vector2(10,10)
         // Console.WriteLine(PlayerTransform.pos.ToString());
 
 

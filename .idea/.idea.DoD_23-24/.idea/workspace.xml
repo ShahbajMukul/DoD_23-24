@@ -8,9 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb379731-8299-4bc0-8f02-a01623b78a11" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/Gameplay/Shepherd/Rams.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DoD_23-24/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DoD_23-24/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Gameplay/World/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Gameplay/World/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Gameplay/Shepherd/Rams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Gameplay/Shepherd/Rams.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Gameplay/World/World.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Gameplay/World/World.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +21,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c6ad457575d35dcbff26c9a5e3fb1d92f1d3c55f25ef6ebf475367b5d8/List.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Gameplay/Shepherd/Rams.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Gameplay/World/World.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -39,6 +46,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -81,6 +89,9 @@
       <workItem from="1701373968386" duration="1363000" />
       <workItem from="1701375369756" duration="977000" />
       <workItem from="1701376688198" duration="4699000" />
+      <workItem from="1701406432660" duration="152000" />
+      <workItem from="1701406752397" duration="1357000" />
+      <workItem from="1701472575262" duration="3124000" />
     </task>
     <servers />
   </component>
@@ -89,5 +100,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="DotNetProject">
+        <watch expression="ramInstance" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

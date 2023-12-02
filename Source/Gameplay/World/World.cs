@@ -28,11 +28,19 @@ namespace DoD_23_24
             Globals.collisionSystem = new CollisionSystem();
 
             Entity playerInstance = new Player("Player", "2D/Sprites/Item", new Vector2(100, 100), 0.0f, new Vector2(16, 16));
-            Entity randomThing = new Entity("RandomThing", Layer.NPC);
+            Entity ramInstance = new Rams("Ram", "OIG[1]",new Vector2(110, 100), 0.0f, new Vector2(16, 16));
+            //Entity randomThing = new Entity("RandomThing", Layer.NPC);
+            ramInstance.AddComponent(
+                new TransformComponent(ramInstance,
+                    new Vector2(-50, -50), 0.0f, new Vector2(16, 16)));
+            ramInstance.AddComponent(new TransformComponent(ramInstance,
+                new Vector2(-50, -50), 0.0f, new Vector2(16, 16)));
+            /*randomThing.AddComponent(new RenderComponent(ramInstance, "2D/Sprites/Item"));
+            randomThing.AddComponent(new CollisionComponent(ramInstance, true, true));
             randomThing.AddComponent(new TransformComponent(randomThing,
                 new Vector2(-50, -50), 0.0f, new Vector2(16, 16)));
             randomThing.AddComponent(new RenderComponent(randomThing, "2D/Sprites/Item"));
-            randomThing.AddComponent(new CollisionComponent(randomThing, true, true));
+            randomThing.AddComponent(new CollisionComponent(randomThing, true, true));*/
             Entity camera = new Entity("Camera", Layer.Camera);
             camera.AddComponent(new CameraComponent(camera, playerInstance));
 
@@ -42,7 +50,8 @@ namespace DoD_23_24
             TileMapGenerator tileMapGenerator = new TileMapGenerator("Content/map.tmx", "Tiny Adventure Pack\\");
             entities.AddRange(tileMapGenerator.GetTiles());
             entities.Add(playerInstance);
-            entities.Add(randomThing);
+            //entities.Add(randomThing);
+            entities.Add(ramInstance);
             entities.Add(camera);
             entities.Add(book);
             entities.Add(book.GetOverlapZone());
