@@ -16,7 +16,8 @@ using Microsoft.Xna.Framework.Media;
 namespace DoD_23_24
 {
 	public class Player : Entity
-	{
+    {
+        public int health = 100;
         float speed = 50f;
         TransformComponent transform;
         bool isPressed = false;

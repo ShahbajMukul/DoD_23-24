@@ -28,7 +28,11 @@ namespace DoD_23_24
             Globals.collisionSystem = new CollisionSystem();
 
             Entity playerInstance = new Player("Player", "2D/Sprites/Item", new Vector2(100, 100), 0.0f, new Vector2(16, 16));
-            Entity ramInstance = new Rams("Ram", "OIG[1]",new Vector2(110, 100), 0.0f, new Vector2(16, 16),playerInstance);
+            Entity ramInstance = new Rams("Ram", "OIG[1]",new Vector2(80, 100), 0.0f, new Vector2(16, 16),playerInstance);
+           
+            Entity ramInstance2 = new Rams("Ram2", "OIG[1]",new Vector2(200, 200), 0.0f, new Vector2(16, 16),playerInstance);
+            //Entity ramInstance3 = new Rams("Ram3", "OIG[1]",new Vector2(50, 50), 0.0f, new Vector2(16, 16),playerInstance);
+
             //Entity randomThing = new Entity("RandomThing", Layer.NPC);
             
             /*randomThing.AddComponent(new RenderComponent(ramInstance, "2D/Sprites/Item"));
@@ -48,6 +52,8 @@ namespace DoD_23_24
             entities.Add(playerInstance);
             //entities.Add(randomThing);
             entities.Add(ramInstance);
+            entities.Add(ramInstance2);
+           // entities.Add(ramInstance3);
             entities.Add(camera);
             entities.Add(book);
             entities.Add(book.GetOverlapZone());
