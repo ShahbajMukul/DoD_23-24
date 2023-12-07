@@ -22,7 +22,10 @@ namespace DoD_23_24
         TransformComponent transform;
         bool isPressed = false;
         bool isFrozen = false;
-        
+        bool isDisoriented = false;
+        float disorientationDuration = 0;
+        float disorientedSpeed = 25f;
+
 
         public Player(string name, string PATH, Vector2 POS, float ROT, Vector2 DIMS) : base(name, Layer.Player)
 		{
@@ -34,39 +37,60 @@ namespace DoD_23_24
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            Movement(gameTime);
+            if (isDisoriented)
+            {
+                disorientationDuration -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (disorientationDuration <= 0)
+                {
+                    ResetDisorientation();
+                }
+            }
+            else
+            {
+                Movement(gameTime);
+            }
         }
 
         public void Movement(GameTime gameTime)
         {
-            if(isFrozen)
+            if(isFrozen || isDisoriented)
             {
                 return;
             }
 
             KeyboardState kstate = Keyboard.GetState();
 
-            if (kstate.IsKeyDown(Keys.Left))
+            if (kstate.IsKeyDown(Keys.Left) || kstate.IsKeyDown(Keys.A))
             {
                 transform.pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
 
-            if (kstate.IsKeyDown(Keys.Right))
+            if (kstate.IsKeyDown(Keys.Right) || kstate.IsKeyDown(Keys.D))
             {
                 transform.pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
 
-            if (kstate.IsKeyDown(Keys.Up))
+            if (kstate.IsKeyDown(Keys.Up) || kstate.IsKeyDown(Keys.W))
             {
                 transform.pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
 
-            if (kstate.IsKeyDown(Keys.Down))
+            if (kstate.IsKeyDown(Keys.Down) || kstate.IsKeyDown(Keys.S))
             {
                 transform.pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
         }
-
+        public void Disorient(float duration)
+        {
+            isDisoriented = true;
+            disorientationDuration = duration;
+            speed -= disorientedSpeed;
+        }
+        private void ResetDisorientation()
+        {
+            isDisoriented = false;
+            speed += disorientedSpeed; 
+        }
         public override void OnCollision(Entity otherEntity)
         {
             Console.WriteLine("I'm Colliding!");

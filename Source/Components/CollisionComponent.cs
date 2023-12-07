@@ -75,19 +75,6 @@ namespace DoD_23_24
                     }
                 }
 
-                //overlap = bounds.Height / 2 + otherCollision.bounds.Height / 2 - Math.Abs(penetrationDepthVector.Y);
-
-                //if (overlap > 0)
-                //{
-                //    if (penetrationDepthVector.Y > 0)
-                //    {
-                //        transform.pos.Y += overlap;
-                //    }
-                //    else
-                //    {
-                //        transform.pos.Y -= overlap;
-                //    }
-                //}
             }
 
             entity.OnCollision(otherEntity);
