@@ -17,8 +17,45 @@ namespace DoD_23_24
 {
 	public class Player : Entity
     {
-        public int health = 100;
+        int health = 100;
         float speed = 50f;
+
+        public int Health
+        {
+            get => health;
+            set => health = value;
+        }
+
+        public float Speed
+        {
+            get => speed;
+            set => speed = value;
+        }
+
+        public TransformComponent Transform
+        {
+            get => transform;
+            set => transform = value;
+        }
+
+        public bool IsPressed
+        {
+            get => isPressed;
+            set => isPressed = value;
+        }
+
+        public bool IsFrozen
+        {
+            get => isFrozen;
+            set => isFrozen = value;
+        }
+
+        public string Name
+        {
+            get => name;
+            set => name = value;
+        }
+
         TransformComponent transform;
         bool isPressed = false;
         bool isFrozen = false;
@@ -31,10 +68,13 @@ namespace DoD_23_24
             AddComponent(new CollisionComponent(this, true, true));
         }
 
+
+
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
             Movement(gameTime);
+            Console.WriteLine(health);
         }
 
         public void Movement(GameTime gameTime)

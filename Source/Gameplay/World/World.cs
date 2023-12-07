@@ -57,6 +57,7 @@ namespace DoD_23_24
             entities.Add(camera);
             entities.Add(book);
             entities.Add(book.GetOverlapZone());
+            
         }
 
         public void Update(GameTime gameTime)

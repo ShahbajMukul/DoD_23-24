@@ -59,8 +59,8 @@ namespace DoD_23_24
             {
                 Point penetrationDepthVector = bounds.Center - otherCollision.bounds.Center;
                 int overlap = bounds.Width / 2 + otherCollision.bounds.Width / 2 - Math.Abs(penetrationDepthVector.X);
-                Console.WriteLine(bounds.Center + " " + otherCollision.bounds.Center);
-                Console.WriteLine(penetrationDepthVector + " " + overlap);
+             //   Console.WriteLine(bounds.Center + " " + otherCollision.bounds.Center);
+             //   Console.WriteLine(penetrationDepthVector + " " + overlap);
 
 
                 if (overlap > 0)

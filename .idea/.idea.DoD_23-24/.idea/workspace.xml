@@ -9,10 +9,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cb379731-8299-4bc0-8f02-a01623b78a11" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DoD_23-24/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DoD_23-24/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Components/CollisionComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Components/CollisionComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Gameplay/Shepherd/Rams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Gameplay/Shepherd/Rams.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Gameplay/World/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Gameplay/World/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Gameplay/World/World.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Gameplay/World/World.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global.json" beforeDir="false" afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +98,8 @@
       <workItem from="1701794191126" duration="667000" />
       <workItem from="1701795456150" duration="299000" />
       <workItem from="1701795987017" duration="1499000" />
-      <workItem from="1701893189210" duration="2260000" />
+      <workItem from="1701893189210" duration="5674000" />
+      <workItem from="1701974340618" duration="8289000" />
     </task>
     <servers />
   </component>
