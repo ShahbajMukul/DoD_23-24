@@ -22,7 +22,7 @@ public class Ghost : Entity
         {
             hasPassedThrough = true; 
             Player playerComponent = player as Player;
-            playerComponent.Disorient(5.0f); 
+           // playerComponent.Disorient(5.0f); 
         }
 
         if (hasPassedThrough)

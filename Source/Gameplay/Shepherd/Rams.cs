@@ -6,11 +6,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
+
+
 namespace DoD_23_24;
 
 public class Rams : Entity
 {
-    bool isalreadyhealed = false;
+    public bool isalreadyhealed = false; bool alreadyattacked = false;
     float speed = 50f;
     private TransformComponent transform;
     private TransformComponent playertransform;
@@ -21,9 +23,13 @@ public class Rams : Entity
     private Vector2 direction;
     private int playerhealth;
     private CollisionComponent collision;
+    public MouseState mstate;
+    private bool canAttack = true;
+    private double elapsedCooldownTime = 0.0;
 
     public Rams(string name, string PATH, Vector2 POS, float ROT, Vector2 DIMS, Entity player) : base(name, Layer.NPC)
     {
+        mstate = Mouse.GetState();
         playerinstance = (Player)player;
         
         transform = (TransformComponent)AddComponent(new TransformComponent(this, POS, ROT, DIMS));
@@ -43,18 +49,33 @@ public class Rams : Entity
 
     }
 
-    public void Attack(GameTime gameTime)
+    public void Attack(GameTime gameTime , MouseState state)
     {
 
-        MouseState mstate = Mouse.GetState();
 
-        Vector2 RamPosition = mstate.Position.ToVector2(); // Set the X and Y coordinates
+        Vector2 RamPosition = playerinstance.Transform.pos;
+
+
+
+        // direction.Normalize(); // Set the X and Y coordinates
         direction = RamPosition;
-        direction.Normalize();
+//        direction.Normalize();
 
-        float speed = 0.001f;
-        shouldLaunch = true;
-        //
+        float speed = 2f;
+        // shouldLaunch = true;
+       
+        while (mstate.LeftButton  != ButtonState.Released)
+        {
+            transform.pos += direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            
+        }
+    }
+
+
+
+
+    //
         // if (collision)
         // {
         //     
@@ -62,13 +83,18 @@ public class Rams : Entity
         
         
 
+    
+
+    public void resetPosition()
+    {
+        transform.pos = playerinstance.GetComponent<TransformComponent>().pos + new Vector2(50,50);
     }
 
     public void HealPlayer(GameTime gametime)
     {
         
         
-        KeyboardState kstate = Keyboard.GetState();
+       KeyboardState kstate = Keyboard.GetState();
         if (kstate.IsKeyDown(Keys.Space) && isalreadyhealed == false)
         {
             playerhealth += 50;
@@ -86,43 +112,72 @@ public class Rams : Entity
 
 
 
-
+    Double time = 0;
 
 
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
-        
-        MouseState mstate = Mouse.GetState();
-        
-        if (mstate.LeftButton != ButtonState.Pressed)
+        mstate = Mouse.GetState();
+
+
+        if (Vector2.Distance(playerinstance.GetComponent<TransformComponent>().pos, transform.pos) > 100)
         {
-            POSX = playerinstance.GetComponent<TransformComponent>().pos.X + 50;
-            POSY = playerinstance.GetComponent<TransformComponent>().pos.Y + 50;
-            transform.pos.Y = POSY;
-            transform.pos.X = POSX;
+            alreadyattacked = true;
         }
-        
-        else if (mstate.LeftButton == ButtonState.Pressed)
+        else
         {
+            alreadyattacked = false;
+        }
+
+
+        if (alreadyattacked)
+        {
+            elapsedCooldownTime = (elapsedCooldownTime >= 5.0) ? 0.0 : elapsedCooldownTime + gameTime.ElapsedGameTime.TotalSeconds;
             
-            Attack(gameTime);
         }
+        
+        
+        Console.WriteLine("gametime is:" + elapsedCooldownTime);
 
-        if (shouldLaunch)
+      
+        if (elapsedCooldownTime == 0.0){
+
+            if (mstate.LeftButton == ButtonState.Pressed)
+            {
+                Attack(gameTime, mstate);
+
+               
+            }
+           
+            
+            
+            canAttack = true;
+        }
+        else
         {
-            transform.pos += direction * speed;
+            resetPosition();
+
         }
+        
+        
+        Console.WriteLine("alreadyattacked is" + alreadyattacked);
+    
 
-        HealPlayer(gameTime);
 
-
+        // Rest of your existing code...
     }
+
+
+
+
+
+
 }
 
 // public override void Draw()
-    // {
-    //     base.Draw();
-    //     
-    // }
-    
+// {
+//     base.Draw();
+//     
+// }
+
