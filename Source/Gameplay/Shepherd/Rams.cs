@@ -64,7 +64,7 @@ public class Rams : Entity
         float speed = 2f;
         // shouldLaunch = true;
        
-        while (mstate.LeftButton  != ButtonState.Released)
+        if (mstate.LeftButton  != ButtonState.Released)
         {
             transform.pos += direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
